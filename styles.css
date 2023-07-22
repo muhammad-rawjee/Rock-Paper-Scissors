@@ -1,0 +1,72 @@
+body {
+    background-color: #918E85;
+}
+
+h1 {
+    text-align: center;
+    font: 1.7rem Inconsolata, monospace;
+    color: bisque
+}
+
+h3 {
+    text-align: center;
+    font: 1.2rem Inconsolata, monospace;
+    color: bisque;
+}
+.container {
+    display: flex;
+}
+
+.human-cont, .comp-cont {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid bisque;
+    gap: 10px;
+    height: 200px;
+    width: 300px;
+    margin-top: 100px;
+    margin-left: 100px;
+    justify-content:baseline;
+    padding: 20px;
+
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+}
+
+.choice {
+    display: flex;
+    justify-content: space-between;
+}
+
+.score {
+    font: 1.0rem Inconsolata, monospace;
+    color: bisque;
+}
+
+div {
+    font-family: monospace;
+}
+
+
+.rock > button, .paper > button, .scissors > button {
+    background-color: rgb(67, 67, 157);
+    border-radius: 7px;
+}
+
+button > div {
+    color: bisque;
+}
+
+.comp-cont > .title ,.human-cont > .title {
+    color: bisque;
+    font: 1.2rem Inconsolata, monospace;
+}
