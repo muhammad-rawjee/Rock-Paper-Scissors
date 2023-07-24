@@ -1,11 +1,10 @@
-// 
 const buttons = document.querySelectorAll('.choice > #btn');
 const currRound = document.querySelector('.res-cont > .curr-round');
 const finalRes = document.querySelector('.res-cont > .final-res');
 const PScore = document.querySelector('.human-cont > .info > .stats > .score');
 const CScore = document.querySelector('.comp-cont > .info > .stats > .score');
-const tryAgain = document.querySelector('.res-cont > .try-again')
-console.log(PScore);
+
+//console.log(PScore);
 let playerScore = 0;
 let computerScore = 0;
 
@@ -16,9 +15,6 @@ let disableButtons = () => {
     })
 }
 
-tryAgain.addEventListener('click', () => {
-    location.reload();
-});
 // Fin
 let getComputerChoice = () => {
     let randNum = Math.floor(Math.random() * (3) + 1);
@@ -52,10 +48,13 @@ let playRound = (playerSelection) => {
     playerSelection = playerSelection.toLowerCase();
     let computerSelection = getComputerChoice().toLowerCase();
     const result = determineWinner(playerSelection, computerSelection);
-    currRound.textContent = `Current Round Result: ${result}`;
+    
     if (computerScore == 5 || playerScore == 5){
         displayFinalRes();
     }
+
+    currRound.textContent = `Current Round Result: ${result}`;
+
     if (result == "You win!" && playerScore < 5){
         playerScore += 1
         PScore.textContent = `Score: ${playerScore}`
@@ -68,7 +67,16 @@ let playRound = (playerSelection) => {
 
 let displayFinalRes = () => {
     disableButtons();
+    const parent = document.querySelector('.res-cont');
+    const button = document.createElement('button');
+    button.classList.add('try-again')
+    button.textContent = `Try Again`
+    parent.appendChild(button)
     
+    button.addEventListener('click', () => {
+        location.reload();
+    });
+
     if (playerScore == 5){
         finalRes.textContent = `Final result: Congratulation! You won!`
     }
